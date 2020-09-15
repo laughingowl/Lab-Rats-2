@@ -1537,12 +1537,12 @@ init -2 python:
         def run_turn(self):
             self.listener_system.fire_event("time_advance")
             self.change_arousal(-20)
-            self.change_energy(20)
+            self.change_energy(self.max_energy * .2)         # Change to percentage of max energy, giving slight bonus to things that increase max energy
             return
 
         def run_day(self):
             self.listener_system.fire_event("end_of_day")
-            self.change_energy(60)
+            self.change_energy(self.max_energy * .6)          # Change to percentage of max energy, giving slight bonus to things that increase max energy
             self.reset_arousal()
             self.scrap_goal_available = True
 
